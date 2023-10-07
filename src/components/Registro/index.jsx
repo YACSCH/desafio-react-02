@@ -17,7 +17,7 @@ const Registro = () => {
       </section>
       <h6>O usa tu email para registrarte</h6>
       <Formulario/>
-      <Alert/>
+      {/* {error && <Alert color='' message='' /> } */}
       </main>
     </>
     
