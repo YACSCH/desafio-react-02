@@ -37,7 +37,7 @@ const Formulario = ({ setError, setMessage, setColor }) => {
     setPass('');
     setConfirmPass(''); */
     setMessage('Todos los campos completados Correctamente!!!!!')
-    setColor("alert alert-danger")
+    setColor("alert alert-success")
     
 
 

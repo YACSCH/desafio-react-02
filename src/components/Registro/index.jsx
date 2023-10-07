@@ -21,7 +21,7 @@ const Registro = ({error, setError, message, setMessage, color, setColor}) => {
         setMessage = { setMessage }
         setColor = { setColor }
       />
-        {  error && <Alert color= { color } message={ message }/> }
+        {  error ? <Alert color= { color } message={ message }/>  : <Alert color= { color } message={ message }/> }
       </main>
     </>
     
