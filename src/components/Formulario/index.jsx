@@ -5,10 +5,11 @@ const Formulario = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
-    
+  
+  
   return (
     <>
-      <form className="formulario">
+      <form >
         <div className="form-group">
            <input
             type="text"
