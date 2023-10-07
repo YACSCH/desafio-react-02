@@ -14,22 +14,28 @@ const Formulario = () => {
       setError(true);
       return;
     }
+    if (pass !== confirmPass) {
+      setError(true);
+      return;
+    }
+    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
+
+    if (!emailRegex.test(email)) {
+      setError(true);
+      return;
+    }
+
     setError(false);
     setNombre("");
     setEmail("");
     setPass("");
     setPassConfirm("");
-  };
-  if (!(pass === confirmPass)) {
-    setError(true);
-    return;
-  }
-  const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-  if (!regex.test(email)) {
-    onSubmit('danger', 'Por favor, ingrese un correo electrónico válido.');
-    return false;
-  }
+
+
+  };
+  
+
   return (
     <>
       <form onSubmit={validate}>
@@ -77,7 +83,7 @@ const Formulario = () => {
           Enviar
         </button>
       </form>
-     
+      {/* {error && <Alert color message />} */}
     </>
   );
 };
