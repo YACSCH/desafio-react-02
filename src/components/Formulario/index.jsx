@@ -10,7 +10,7 @@ const Formulario = () => {
   return (
     <>
       <form >
-        <div className="form-group">
+        <div className="form-group mb-2">
            <input
             type="text"
             name="nombre"
@@ -20,7 +20,7 @@ const Formulario = () => {
             value={nombre}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group mb-2">
           <input
             type="text"
             name="email"
@@ -30,7 +30,7 @@ const Formulario = () => {
             value={email}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group  mb-2">
           <input
             type="text"
             name="pass"
@@ -40,7 +40,7 @@ const Formulario = () => {
             value={pass}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group  mb-2">
           <input
             type="text"
             name="confirmPass"
@@ -50,7 +50,7 @@ const Formulario = () => {
             value={confirmPass}
           />
         </div>
-        <button type="submit" className="btn btn-success btn-small">
+        <button type="submit" className="btn btn-success w-100">
           Enviar
         </button>
        </form>
