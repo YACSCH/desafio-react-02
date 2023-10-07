@@ -1,36 +1,44 @@
 import { useState } from "react";
 
-const Formulario = () => {
+const Formulario = ({ setError, setMessage, setColor }) => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
-  const [error, setError] = useState(false);
+  
 
   const validate = (e) => {
     e.preventDefault();
-
+     
     if (nombre === "" || email === "" || pass === "" || confirmPass === "") {
       setError(true);
+      setMessage('Favor Completar todos los campos')
+      setColor("alert alert-danger")
       return;
     }
     if (pass !== confirmPass) {
       setError(true);
+      setMessage('Las contraseñas deben ser iguales!!!!!')
+      setColor("alert alert-danger")
       return;
     }
     const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
 
     if (!emailRegex.test(email)) {
       setError(true);
+      setMessage('Email no Valido!!!!!')
+      setColor("alert alert-danger")
       return;
     }
 
     setError(false);
-    setNombre("");
-    setEmail("");
-    setPass("");
-    setPassConfirm("");
-
+    /* setNombre('');
+    setEmail('');
+    setPass('');
+    setConfirmPass(''); */
+    setMessage('Todos los campos completados Correctamente!!!!!')
+    setColor("alert alert-danger")
+    
 
 
   };
@@ -38,7 +46,7 @@ const Formulario = () => {
 
   return (
     <>
-      <form onSubmit={validate}>
+      <form onSubmit={validate} className="mt-2">
         <div className="form-group mb-2">
           <input
             type="text"
@@ -79,11 +87,11 @@ const Formulario = () => {
             value={confirmPass}
           />
         </div>
-        <button type="submit" className="btn btn-success w-100">
+        <button type="submit" className="btn btn-success w-100 mb-3">
           Enviar
         </button>
       </form>
-      {/* {error && <Alert color message />} */}
+      
     </>
   );
 };
