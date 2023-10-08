@@ -25,3 +25,10 @@ justify-content: center;
 max-width: 350px;
 margin: auto;
 }
+p
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+}

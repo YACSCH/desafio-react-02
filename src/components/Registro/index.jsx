@@ -5,7 +5,9 @@ import Alert from '../Alert'
 
 import './index.css'
 
-const Registro = ({error, setError, message, setMessage, color, setColor}) => {
+const Registro = ({msgErr, error}) => {
+
+=======
   return (
     <>
       <main className='container text-center bg-white p-4 rounded-4'>
@@ -16,12 +18,7 @@ const Registro = ({error, setError, message, setMessage, color, setColor}) => {
           <SocialButton icon="fa-linkedin" />
       </section>
       <h6>O usa tu email para registrarte</h6>
-      <Formulario
-        setError = { setError }
-        setMessage = { setMessage }
-        setColor = { setColor }
-      />
-        {  error ? <Alert color= { color } message={ message }/>  : <Alert color= { color } message={ message }/> }
+      <Formulario msg={msgErr} setMsgErr={error}/>
       </main>
     </>
     

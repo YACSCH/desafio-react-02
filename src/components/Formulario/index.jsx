@@ -1,54 +1,36 @@
-import { useState } from "react";
 
-const Formulario = ({ setError, setMessage, setColor }) => {
-  const [nombre, setNombre] = useState("");
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [confirmPass, setConfirmPass] = useState("");
-  
+import { useState } from 'react';
+import './index.css'
+import Alert from '../Alert';
 
-  const validate = (e) => {
+const Formulario = ({msg, setMsgErr}) => {
+  const [submit, setSubmit] = useState(false)
+  const [nombre, setNombre] = useState('');
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [confirmPass, setConfirmPass] = useState('');
+  const [err, setError] = useState(false)
+
+const handleSubmit = (e) =>{
     e.preventDefault();
-     
-    if (nombre === "" || email === "" || pass === "" || confirmPass === "") {
-      setError(true);
-      setMessage('Favor Completar todos los campos')
-      setColor("alert alert-danger")
-      return;
-    }
-    if (pass !== confirmPass) {
-      setError(true);
-      setMessage('Las contraseñas deben ser iguales!!!!!')
-      setColor("alert alert-danger")
-      return;
-    }
-    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
-
-    if (!emailRegex.test(email)) {
-      setError(true);
-      setMessage('Email no Valido!!!!!')
-      setColor("alert alert-danger")
-      return;
-    }
-
-    setError(false);
-    /* setNombre('');
-    setEmail('');
-    setPass('');
-    setConfirmPass(''); */
-    setMessage('Todos los campos completados Correctamente!!!!!')
-    setColor("alert alert-success")
-    
-
-
-  };
-  
-
+    console.log(e);
+    setSubmit(true);
+if(nombre.trim() === "" || 
+    pass !== confirmPass || 
+    pass === "" || 
+    pass.length < 6 || 
+    !email.includes('@')){
+    setError(true)
+}   else {
+    setError(false)
+    setMsgErr('Excelente! Su registro ha sido exitoso')
+    };
+}
   return (
     <>
-      <form onSubmit={validate} className="mt-2">
-        <div className="form-group mb-2">
-          <input
+      <form onSubmit={handleSubmit} className="formulario" autoComplete='off'>
+        <div className="form-group">
+           <input
             type="text"
             name="nombre"
             placeholder="Nombre"
@@ -91,7 +73,11 @@ const Formulario = ({ setError, setMessage, setColor }) => {
           Enviar
         </button>
       </form>
+
+      {submit === true ? <Alert msg={msg} /> : ""}
+
       
+
     </>
   );
 };
