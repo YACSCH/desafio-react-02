@@ -7,7 +7,6 @@ import './index.css'
 
 const Registro = ({msgErr, error}) => {
 
-=======
   return (
     <>
       <main className='container text-center bg-white p-4 rounded-4'>
