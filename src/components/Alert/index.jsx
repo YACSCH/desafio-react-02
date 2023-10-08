@@ -1,9 +1,9 @@
 
-export const Alert = ({msg}) => {
+export const Alert = ({ msg, color }) => {
   
   return (
     <>
-    <p>{msg}</p>
+    <p className={ color } >{ msg }</p>
     </>
   )
 }

@@ -11,9 +11,12 @@ const SocialButton = ({ icon }) => {
   };
 
   return (
-    <a className='btn btn-outline-dark rounded-circle'>
+   
+      <a className='btn btn-outline-dark rounded-circle'>
       <FontAwesomeIcon className='fa-xl' icon={socialIcons[icon]} />
     </a>
+    
+    
   );
 };
 

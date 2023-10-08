@@ -10,6 +10,7 @@ const Formulario = ({msg, setMsgErr}) => {
   const [pass, setPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
   const [err, setError] = useState(false)
+  const [color, setColor] = useState('')
 
 const handleSubmit = (e) =>{
     e.preventDefault();
@@ -21,9 +22,12 @@ if(nombre.trim() === "" ||
     pass.length < 6 || 
     !email.includes('@')){
     setError(true)
+    setMsgErr('Error! Todos los campos son obligatorios')
+    setColor('alert alert-danger')
 }   else {
     setError(false)
     setMsgErr('Excelente! Su registro ha sido exitoso')
+    setColor('alert alert-success')
     };
 }
   return (
@@ -74,7 +78,7 @@ if(nombre.trim() === "" ||
         </button>
       </form>
 
-      {submit === true ? <Alert msg={msg} /> : ""}
+      {submit === true ? <Alert msg={ msg } color= { color } /> : ""}
 
       
 
