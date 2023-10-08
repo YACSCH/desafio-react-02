@@ -1,20 +1,27 @@
 import SocialButton from '../SocialButton'
 import Formulario from '../Formulario'
+import Alert from '../Alert'
+
 
 import './index.css'
 
-const Registro = () => {
+const Registro = ({error, setError, message, setMessage, color, setColor}) => {
   return (
     <>
-      <main className='container text-center bg-white p-3 rounded-4'>
+      <main className='container text-center bg-white p-4 rounded-4'>
       <h1>Crea una cuenta</h1>
-      <section className='w-100 d-flex justify-content-center gap-2'>
+      <section className='d-flex justify-content-center gap-3 p-2'>
           <SocialButton icon="fa-facebook" />
           <SocialButton icon="fa-github" />
           <SocialButton icon="fa-linkedin" />
       </section>
-     
-      <Formulario/>
+      <h6>O usa tu email para registrarte</h6>
+      <Formulario
+        setError = { setError }
+        setMessage = { setMessage }
+        setColor = { setColor }
+      />
+        {  error ? <Alert color= { color } message={ message }/>  : <Alert color= { color } message={ message }/> }
       </main>
     </>
     
