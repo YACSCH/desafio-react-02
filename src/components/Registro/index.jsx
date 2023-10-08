@@ -3,7 +3,8 @@ import Formulario from '../Formulario'
 
 import './index.css'
 
-const Registro = () => {
+const Registro = ({msgErr, error}) => {
+
   return (
     <>
       <main className='container text-center bg-white p-3 rounded-4'>
@@ -13,8 +14,7 @@ const Registro = () => {
           <SocialButton icon="fa-github" />
           <SocialButton icon="fa-linkedin" />
       </section>
-     
-      <Formulario/>
+      <Formulario msg={msgErr} setMsgErr={error}/>
       </main>
     </>
     

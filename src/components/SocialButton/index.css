@@ -1,10 +1,24 @@
-section{
-    display: flex;
-    flex-direction: column;
+ section{
     text-align: center;
-    margin: 1rem;
+    margin-bottom: 3rem;
 }
-.social-list {
+section a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 1px solid rgb(5, 71, 0);
+}
+section .fa-facebook, .fa-github, .fa-linkedin{
+  width: 40px;
+  height: 40px;
+}
+.fa-linkedin{
+  border-radius: 50%;
+}
+/* .social-list {
     list-style-type: none;
     display: flex;
     justify-content: center;
@@ -19,5 +33,4 @@ section{
     border:1px solid black;
     border-radius: 50px;
     padding: 10px;
-  }
- 
+  } */  

@@ -1,9 +1,9 @@
-import React from 'react'
-
-const Alert = () => {
+export const Alert = ({msg}) => {
+  
   return (
-    <div>Alert</div>
+    <>
+    <p>{msg}</p>
+    </>
   )
 }
-
-export default Alert
+export default Alert;

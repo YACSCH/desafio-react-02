@@ -1,16 +1,35 @@
 import { useState } from 'react';
+import './index.css'
+import Alert from '../Alert';
 
-const Formulario = () => {
+const Formulario = ({msg, setMsgErr}) => {
+  const [submit, setSubmit] = useState(false)
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
-    
+  const [err, setError] = useState(false)
+
+const handleSubmit = (e) =>{
+    e.preventDefault();
+    console.log(e);
+    setSubmit(true);
+if(nombre.trim() === "" || 
+    pass !== confirmPass || 
+    pass === "" || 
+    pass.length < 6 || 
+    !email.includes('@')){
+    setError(true)
+}   else {
+    setError(false)
+    setMsgErr('Excelente! Su registro ha sido exitoso')
+    };
+}
   return (
     <>
-      <form className="formulario">
+      <form onSubmit={handleSubmit} className="formulario" autoComplete='off'>
         <div className="form-group">
-           <input
+          <input
             type="text"
             name="nombre"
             placeholder='Nombre'
@@ -52,7 +71,8 @@ const Formulario = () => {
         <button type="submit" className="btn btn-success btn-small">
           Enviar
         </button>
-       </form>
+      </form>
+      {submit === true ? <Alert msg={msg} /> : ""}
     </>
   );
 };
